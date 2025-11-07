@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>VisãoDev | Sintetizador de Voz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body class="bg-gray-200 text-black dark:bg-neutral-950 dark:text-white">
+    
+    <div class="max-w-3xl mx-auto p-6 md:p-10 bg-white dark:bg-neutral-800 shadow-2xl rounded-xl mt-8 min-h-[80vh]">
+        
+        <h1 class="text-3xl font-bold mb-8 text-center text-indigo-700 dark:text-indigo-400">
+            🎙️ Leitor de Texto
+        </h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            
+            <div class="flex flex-col">
+                <label for="selectIdioma" class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Idioma:</label>
+                <select id="selectIdioma" class="w-full p-2 border border-gray-300 rounded-lg bg-gray-50 dark:bg-neutral-700 dark:border-neutral-600 focus:outline-none focus:border-indigo-500 appearance-none"></select>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="selectVoz" class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Voz:</label>
+                <select id="selectVoz" class="w-full p-2 border border-gray-300 rounded-lg bg-gray-50 dark:bg-neutral-700 dark:border-neutral-600 focus:outline-none focus:border-indigo-500 appearance-none"></select>
+            </div>
+            
+            <div class="flex flex-col">
+                <label for="rangePitch" class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Pitch (Tom):</label>
+                <div class="flex items-center gap-2">
+                    <input type="range" min="0" max="2" value="1" step="0.1" id="rangePitch" class="grow">
+                    <span id="pitchValue" class="text-sm font-mono bg-gray-100 dark:bg-neutral-700 p-1 rounded">1.0</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="rangeRate" class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Velocidade:</label>
+                <div class="flex items-center gap-2">
+                    <input type="range" min="0.5" max="10" value="1" step="0.1" id="rangeRate" class="grow">
+                    <span id="rateValue" class="text-sm font-mono bg-gray-100 dark:bg-neutral-700 p-1 rounded">1.0</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-4">
+            <textarea 
+                id="txtTexto" 
+                required 
+                rows="8" 
+                class="w-full border border-gray-300 p-4 rounded-xl resize-none shadow-md mb-4 
+                       focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 
+                       dark:bg-neutral-700 dark:border-neutral-600"
+            >Olá, faça o teste usando a voz do navegador! Este leitor é responsivo e moderno.</textarea>
+
+            <div class="flex gap-4">
+                <button 
+                    id="btnFalar" 
+                    class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl 
+                        cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg 
+                        transition duration-200 ease-in-out"
+                >
+                    🎙️ Falar e Transcrever
+                </button>
+                <button 
+                    id="btnReproduzir" 
+                    class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl 
+                           cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-indigo-600 shadow-lg 
+                           transition duration-200 ease-in-out"
+                >
+                    ▶️ Reproduzir
+                </button>
+                
+                <button 
+                    id="btnParar" 
+                    disabled 
+                    class="flex-1 bg-gray-400 hover:bg-gray-500 text-white font-bold px-6 py-3 rounded-xl 
+                           cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-400 shadow-md 
+                           transition duration-200 ease-in-out"
+                >
+                    ⏹️ Parar
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
